@@ -11,50 +11,48 @@ namespace TestApplicationSession1
         public struct Student
         {
             public string Name;
-            public int Age;
-            public char Gender;
         }
 
         static void Main(string[] args)
         {
-            //Using Non Static Member of a Class
-            basicprograming b = new basicprograming();
-            int i = b.Add(20, 30);
+            Student[] s = new Student[3];
+            for (int i = 0; i < s.Length; i++)
+            {
+                Console.Write("Enter Name: ");
+                s[i].Name = Console.ReadLine();
+                Console.Write("enter sub1: ");
+                int sub1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("enter sub2: ");
+                int sub2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("enter sub3:");
+                int sub3 = Convert.ToInt32(Console.ReadLine());
+                int total = sub1 + sub2 + sub3;
+                Console.WriteLine($" addition of {sub1}-{sub2}-{sub3} is {total} ");
+                float avg = (total / 3);
+                Console.WriteLine($"avg is {avg}");
+                if (sub1 < 35 || sub2 < 35 || sub3 < 35)
+                {
+                    Console.WriteLine("fail");
+                }
+                else
+                    Console.WriteLine("pass");
+                if (avg <= 65)
+                {
+                    Console.WriteLine("distinction");
 
-            // Using Static Member of a Class.
-            int k = basicprograming.Addition(30, 40);
+                }
+                else if (avg >= 70)
+                {
+                    Console.WriteLine("state");
 
-            Console.WriteLine("Enter Number 1 : ");
-            int num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter Number 2 : ");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-
-            int result = num1 + num2;
-
-            Console.WriteLine($"Addition of {num1} and {num2} is {result}");
-            Console.WriteLine("Addition of {num1} and {num2} is {result}");
-            Console.WriteLine("Addition of {0} and {1} is {2}", num1, num2, result);
+                }
 
 
-            Student std = new Student();
-            Console.WriteLine("Please enter the Name : ");
-            std.Name = Console.ReadLine();
-            Console.WriteLine("Please enter the Age : ");
-            std.Age = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please enter the Gender : ");
-            std.Gender = Convert.ToChar(Console.ReadLine());
+                Console.ReadKey();
+            }
 
-            Console.WriteLine($"You have entered {std.Name} - {std.Gender} - {std.Age}");
 
-            Console.ReadKey();
         }
-
-        public  void GetData()
-        {
-
-        }
-
-
     }
+
 }
