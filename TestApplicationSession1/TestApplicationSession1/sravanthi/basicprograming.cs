@@ -12,6 +12,7 @@ namespace TestApplicationSession1.sravanthi
         public static int Addition(int a, int b)
         {
             return a + b;
+    
         }
 
 
