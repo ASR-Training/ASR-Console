@@ -8,51 +8,166 @@ namespace TestApplicationSession1
 {
     class Program
     {
+        public Subjects[] ArrSub = new Subjects[3];
+        public Student[] ArrStudents = new Student[3];
+        public StudentExams[] ArrStudExam = new StudentExams[9];
+        public StudentResult[] ArrRes = new StudentResult[9];
+
         public struct Student
         {
+            public int StudentID;
             public string Name;
+        }
+
+        public struct Subjects
+        {
+            public int SubjectCode;
+            public string SubjectName;
+            public decimal OutOfMarks;
+        }
+
+        public struct StudentExams
+        {
+            public int StudentID;
+            public int SubjectCode;
+            public float MarkScored;
+        }
+
+        public struct StudentResult
+        {
+            public string Name;
+            public string SubjectName;
+            public float MarkScored;
+            public decimal OutOfMarks;
         }
 
         static void Main(string[] args)
         {
-            Student[] s = new Student[3];
-            for (int i = 0; i < s.Length; i++)
+            Program p = new Program();
+            p.AddSubjects();
+            p.AddStudents();
+            p.DisplySubjects();
+            p.DisplyStudents();
+            p.PrepareResult();
+            p.DisplayResult();
+            Console.ReadKey();
+        }
+
+        /*Will Add All the Subjects*/
+        public void AddSubjects()
+        {
+            Program p = new Program();
+            for (int i = 0; i < p.ArrSub.Length; i++)
             {
-                Console.Write("Enter Name: ");
-                s[i].Name = Console.ReadLine();
-                Console.Write("enter sub1: ");
-                int sub1 = Convert.ToInt32(Console.ReadLine());
-                Console.Write("enter sub2: ");
-                int sub2 = Convert.ToInt32(Console.ReadLine());
-                Console.Write("enter sub3:");
-                int sub3 = Convert.ToInt32(Console.ReadLine());
-                int total = sub1 + sub2 + sub3;
-                Console.WriteLine($" addition of {sub1}-{sub2}-{sub3} is {total} ");
-                float avg = (total / 3);
-                Console.WriteLine($"avg is {avg}");
-                if (sub1 < 35 || sub2 < 35 || sub3 < 35)
-                {
-                    Console.WriteLine("fail");
-                }
-                else
-                    Console.WriteLine("pass");
-                if (avg <= 65)
-                {
-                    Console.WriteLine("distinction");
-
-                }
-                else if (avg >= 70)
-                {
-                    Console.WriteLine("state");
-
-                }
-
-
-                Console.ReadKey();
+                Console.WriteLine("Enter Subject Name : ");
+                p.ArrSub[i].SubjectName = Console.ReadLine();
+                Console.WriteLine("Enter Subject Code : ");
+                p.ArrSub[i].SubjectCode = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Out of Marks of Subject - {0} : ", p.ArrSub[i].SubjectName);
+                p.ArrSub[i].OutOfMarks = Convert.ToDecimal(Console.ReadLine());
             }
+            Console.WriteLine("");
+            Console.WriteLine("Thank you for updating Subject records.");
+        }
 
 
+        /*Will Add Students*/
+        public void AddStudents()
+        {
+            int count = 0;
+            Program p = new Program();
+            for (int i = 0; i < p.ArrStudents.Length; i++)
+            {
+                Console.WriteLine("Record Number : {0}", count++);
+                Console.WriteLine("Enter Student Name : ");
+                p.ArrStudents[i].Name = Console.ReadLine();
+                Console.WriteLine("Enter Student Roll No. : ");
+                p.ArrStudents[i].StudentID = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Thank you for updating Student records.");
+        }
+
+        /*Display All the Subjects*/
+        public void DisplySubjects()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Following is the Subject List : ");
+            Program p = new Program();
+            for (int i = 0; i < p.ArrSub.Length; i++)
+            {
+                Console.WriteLine($"Subject Name : {ArrSub[i].SubjectName} - Subject Code : {ArrSub[i].SubjectCode} - Subject Out of Marks : {ArrSub[i].OutOfMarks}");
+                Console.WriteLine("");
+            }
+        }
+
+        /*Display All the Subjects*/
+        public void DisplyStudents()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Following is the Student List:");
+            Program p = new Program();
+            for (int i = 0; i < p.ArrStudents.Length; i++)
+            {
+                Console.WriteLine($"Student Roll : {ArrStudents[i].StudentID} - Student Name : {ArrStudents[i].Name}");
+                Console.WriteLine("");
+            }
+        }
+
+        /*Preparing Result for the student*/
+        public void PrepareResult()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Preparing Result for the following : ");
+            int count = 0;
+            for (int i = 0; i < ArrStudExam.Length; i++)
+            {
+                Console.WriteLine("Record Number : {0}", count++);
+                Console.WriteLine("Enter Student ID : ");
+                ArrStudExam[i].StudentID = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Subject Code : ");
+                ArrStudExam[i].SubjectCode = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Mark Scored : ");
+                ArrStudExam[i].MarkScored = float.Parse(Console.ReadLine());
+                Console.WriteLine("");
+            }
+        }
+
+        /*Display Result*/
+        public void DisplayResult()
+        {
+            Program p = new Program();
+            int count = 0;
+            for (int i = 0; i < p.ArrStudExam.Length; i = i + 3)
+            {
+                int TempStudentID = p.ArrStudExam[i].StudentID;
+                foreach (Student temp in p.ArrStudents)
+                {
+                    if (temp.StudentID == TempStudentID)
+                    {
+                        Console.WriteLine($"Student Name : {temp.Name}");
+                        count = i;
+                        /*Loop to extract Subject Name for each student*/
+                        for (int j = 0; j < 3; j++)
+                        {
+                            int tempSubject = p.ArrStudExam[count].SubjectCode;
+                            foreach (Subjects tempSub in p.ArrSub)
+                            {
+                                if (TempStudentID == tempSub.SubjectCode)
+                                {
+                                    Console.WriteLine($"Subject Name : {tempSub.SubjectName} - Out of Marks : { tempSub.OutOfMarks} - Mark Scored : {p.ArrStudExam[count].MarkScored}");
+                                    break;
+                                }
+                            }
+                            count++;
+                        }
+                        break;
+                    }
+                }
+            }
+            
+            Console.WriteLine("");
         }
     }
-
 }
