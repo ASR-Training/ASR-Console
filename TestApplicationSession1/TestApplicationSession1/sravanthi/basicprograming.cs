@@ -9,17 +9,25 @@ namespace TestApplicationSession1.sravanthi
     public class basicprograming
     {
         // Static Method of a class
-        public static int Addition(int a, int b)
-        {
-            return a + b;
-    
-        }
+        // public static int Addition(int a, int b)
+        //{
+        //  return a + b;
+
+        //}
 
 
         // Non Static Method of a class
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-    }
+        //public int Add(int a, int b)
+        //{
+        //  return a + b;
+        //}
+
+       
+           }
 }
+
+    
+    
+   
+
+    
