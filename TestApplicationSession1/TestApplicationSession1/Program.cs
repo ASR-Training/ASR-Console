@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestApplicationSession1.sravanthi;
 namespace TestApplicationSession1
 {
     class Program
@@ -56,15 +55,15 @@ namespace TestApplicationSession1
         /*Will Add All the Subjects*/
         public void AddSubjects()
         {
-            Program p = new Program();
-            for (int i = 0; i < p.ArrSub.Length; i++)
+           
+            for (int i = 0; i < ArrSub.Length; i++)
             {
                 Console.WriteLine("Enter Subject Name : ");
-                p.ArrSub[i].SubjectName = Console.ReadLine();
+                ArrSub[i].SubjectName = Console.ReadLine();
                 Console.WriteLine("Enter Subject Code : ");
-                p.ArrSub[i].SubjectCode = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Out of Marks of Subject - {0} : ", p.ArrSub[i].SubjectName);
-                p.ArrSub[i].OutOfMarks = Convert.ToDecimal(Console.ReadLine());
+               ArrSub[i].SubjectCode = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Out of Marks of Subject - {0} : ", ArrSub[i].SubjectName);
+                ArrSub[i].OutOfMarks = Convert.ToDecimal(Console.ReadLine());
             }
             Console.WriteLine("");
             Console.WriteLine("Thank you for updating Subject records.");
@@ -75,14 +74,13 @@ namespace TestApplicationSession1
         public void AddStudents()
         {
             int count = 0;
-            Program p = new Program();
-            for (int i = 0; i < p.ArrStudents.Length; i++)
+            for (int i = 0; i < ArrStudents.Length; i++)
             {
                 Console.WriteLine("Record Number : {0}", count++);
                 Console.WriteLine("Enter Student Name : ");
-                p.ArrStudents[i].Name = Console.ReadLine();
+                ArrStudents[i].Name = Console.ReadLine();
                 Console.WriteLine("Enter Student Roll No. : ");
-                p.ArrStudents[i].StudentID = Convert.ToInt32(Console.ReadLine());
+                ArrStudents[i].StudentID = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("");
             }
             Console.WriteLine("");
@@ -94,8 +92,7 @@ namespace TestApplicationSession1
         {
             Console.WriteLine("");
             Console.WriteLine("Following is the Subject List : ");
-            Program p = new Program();
-            for (int i = 0; i < p.ArrSub.Length; i++)
+            for (int i = 0; i < ArrSub.Length; i++)
             {
                 Console.WriteLine($"Subject Name : {ArrSub[i].SubjectName} - Subject Code : {ArrSub[i].SubjectCode} - Subject Out of Marks : {ArrSub[i].OutOfMarks}");
                 Console.WriteLine("");
@@ -107,8 +104,7 @@ namespace TestApplicationSession1
         {
             Console.WriteLine("");
             Console.WriteLine("Following is the Student List:");
-            Program p = new Program();
-            for (int i = 0; i < p.ArrStudents.Length; i++)
+            for (int i = 0; i < ArrStudents.Length; i++)
             {
                 Console.WriteLine($"Student Roll : {ArrStudents[i].StudentID} - Student Name : {ArrStudents[i].Name}");
                 Console.WriteLine("");
@@ -137,26 +133,25 @@ namespace TestApplicationSession1
         /*Display Result*/
         public void DisplayResult()
         {
-            Program p = new Program();
             int count = 0;
-            for (int i = 0; i < p.ArrStudExam.Length; i = i + 3)
+            for (int i = 0; i < ArrStudExam.Length; i = i + 3)
             {
-                int TempStudentID = p.ArrStudExam[i].StudentID;
-                foreach (Student temp in p.ArrStudents)
+                int TempStudentID = ArrStudExam[i].StudentID;
+                foreach (Student temp in ArrStudents)
                 {
                     if (temp.StudentID == TempStudentID)
                     {
-                        Console.WriteLine($"Student Name : {temp.Name}");
+                        Console.WriteLine($"{temp.Name}");
                         count = i;
                         /*Loop to extract Subject Name for each student*/
                         for (int j = 0; j < 3; j++)
                         {
-                            int tempSubject = p.ArrStudExam[count].SubjectCode;
-                            foreach (Subjects tempSub in p.ArrSub)
+                            int tempSubject = ArrStudExam[count].SubjectCode;
+                            foreach (Subjects tempSub in ArrSub)
                             {
-                                if (TempStudentID == tempSub.SubjectCode)
+                                if (tempSubject == tempSub.SubjectCode)
                                 {
-                                    Console.WriteLine($"Subject Name : {tempSub.SubjectName} - Out of Marks : { tempSub.OutOfMarks} - Mark Scored : {p.ArrStudExam[count].MarkScored}");
+                                    Console.WriteLine($"{tempSub.SubjectName} - Out of Marks : { tempSub.OutOfMarks} - Mark Scored : {ArrStudExam[count].MarkScored}");
                                     break;
                                 }
                             }
@@ -164,9 +159,9 @@ namespace TestApplicationSession1
                         }
                         break;
                     }
+                    Console.WriteLine("");
                 }
             }
-            
             Console.WriteLine("");
         }
     }
