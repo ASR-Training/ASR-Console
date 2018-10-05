@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4DE66367-AF93-42D5-A97F-C0F9A41E5A8D}</ProjectGuid>
+    <ProjectGuid>{8F8344B5-E225-45B3-AB5E-9C7D1590E3CD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TestApplicationSession1</RootNamespace>
-    <AssemblyName>TestApplicationSession1</AssemblyName>
+    <RootNamespace>ClassExamples</RootNamespace>
+    <AssemblyName>ClassExamples</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concepts\Car.cs" />
-    <Compile Include="Concepts\Mathematics.cs" />
+    <Compile Include="Examples\area of square.cs" />
+    <Compile Include="Examples\areacircle.cs" />
+    <Compile Include="Examples\BasicMaths.cs" />
+    <Compile Include="Examples\circle.cs" />
+    <Compile Include="Examples\square.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
