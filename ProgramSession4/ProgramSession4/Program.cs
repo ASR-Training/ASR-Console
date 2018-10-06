@@ -42,11 +42,16 @@ namespace ProgramSession4
             //c.ShowAge();
 
             //Constructor
-            Example e = new Example(2);
-            e.DisplayUserID();
+            //Example e = new Example(2);
+            //e.DisplayUserID();
 
-            student std = new student();
-            Employee emp;
+            //student std = new student();
+            //Employee emp;
+
+            Shape s = new Shape();
+            s.Add(20, 30);
+            s.Sub(50, 20);
+            s.CircleArea(4);
             Console.ReadKey();
         }
     }
