@@ -8,50 +8,6 @@ namespace TestApplicationSession1
 {
     class Program
     {
-        public Subjects[] ArrSub = new Subjects[3];
-        public Student[] ArrStudents = new Student[3];
-        public StudentExams[] ArrStudExam = new StudentExams[9];
-        public StudentResult[] ArrRes = new StudentResult[9];
-
-        public struct Student
-        {
-            public int StudentID;
-            public string Name;
-        }
-
-        public struct Subjects
-        {
-            public int SubjectCode;
-            public string SubjectName;
-            public decimal OutOfMarks;
-        }
-
-        public struct StudentExams
-        {
-            public int StudentID;
-            public int SubjectCode;
-            public float MarkScored;
-        }
-
-        public struct StudentResult
-        {
-            public string Name;
-            public string SubjectName;
-            public float MarkScored;
-            public decimal OutOfMarks;
-        }
-
-        static void Main(string[] args)
-        {
-            Program p = new Program();
-            p.AddSubjects();
-            p.AddStudents();
-            p.DisplySubjects();
-            p.DisplyStudents();
-            p.PrepareResult();
-            p.DisplayResult();
-            Console.ReadKey();
-        }
 
         /*Will Add All the Subjects*/
         public void AddSubjects()
@@ -165,5 +121,7 @@ namespace TestApplicationSession1
             }
             Console.WriteLine("");
         }
+>>>>>>> 14278d2342f8b672871ec58234c439e24a9049d2
     }
 }
+
