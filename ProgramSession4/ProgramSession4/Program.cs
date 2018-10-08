@@ -48,10 +48,25 @@ namespace ProgramSession4
             //student std = new student();
             //Employee emp;
 
-            Shape s = new Shape();
-            s.Add(20, 30);
-            s.Sub(50, 20);
-            s.CircleArea(4);
+            //Shape s = new Shape();
+            //s.Add(20, 30);
+            //s.Sub(50, 20);i
+            //s.CircleArea(4);
+
+            Consume c = new Consume(1);
+            c.Add();
+            c.Multiply();
+            c.Jack();
+           
+            Customer cs = new Customer(1);
+            cs.Add();
+
+            int a = 4;
+            int k = a.Square();
+            k = a.Tri(4);
+
+            double d = 2;
+            double res = d.Area();
             Console.ReadKey();
         }
     }

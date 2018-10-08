@@ -46,6 +46,8 @@
     <Compile Include="Examples\Calculator.cs" />
     <Compile Include="Examples\Circle.cs" />
     <Compile Include="Examples\Example.cs" />
+    <Compile Include="Examples\ExtendedMethods.cs" />
+    <Compile Include="Examples\InheritanceExample.cs" />
     <Compile Include="Examples\student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
