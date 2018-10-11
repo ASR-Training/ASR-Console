@@ -43,13 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InheritanceExamples\AbstractExample.cs" />
     <Compile Include="InheritanceExamples\BaseClass.cs" />
     <Compile Include="InheritanceExamples\ConstructorOfInheritance.cs" />
+    <Compile Include="InheritanceExamples\Partial\Parent1.cs" />
+    <Compile Include="InheritanceExamples\Partial\Parent2.cs" />
+    <Compile Include="InheritanceExamples\Partial\PartialClass1.cs" />
+    <Compile Include="InheritanceExamples\Partial\PartialClass2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

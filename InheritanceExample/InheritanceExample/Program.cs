@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InheritanceExample.InheritanceExamples;
+using InheritanceExample.InheritanceExamples.Partial;
 namespace InheritanceExample
 {
     class Program
@@ -17,8 +18,15 @@ namespace InheritanceExample
             //ConstructorOfInheritance obj1 = new ConstructorBase("James");
 
             // ConstructorOfInheritance obj2 = new ConstructorBase(1);
+            Dog d = new Dog();
+            d.Description();
+            Cat c = new Cat();
+            c.Description();
 
-            ConstructorBase b = new ConstructorBase("James");
+            MyPartialClass p = new MyPartialClass();
+            
+
+            //ConstructorBase b = new ConstructorBase("James");
             Console.ReadKey();
         }
     }
