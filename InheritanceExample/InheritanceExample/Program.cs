@@ -18,13 +18,11 @@ namespace InheritanceExample
             //ConstructorOfInheritance obj1 = new ConstructorBase("James");
 
             // ConstructorOfInheritance obj2 = new ConstructorBase(1);
-            Dog d = new Dog();
-            d.Description();
-            Cat c = new Cat();
-            c.Description();
-
-            MyPartialClass p = new MyPartialClass();
-            
+            //Dog d = new Dog();
+            //d.Description();
+            //Cat c = new Cat();
+            //c.Description();
+            //MyPartialClass p = new MyPartialClass();
 
             //ConstructorBase b = new ConstructorBase("James");
             Console.ReadKey();
